@@ -2,5 +2,5 @@ package com.lhy.boot.messageobserver;
 
 public enum Action {
 	
-	userlogin,userlogout;
+	userlogin,userlogout,userRegister,userUnRegister;
 }

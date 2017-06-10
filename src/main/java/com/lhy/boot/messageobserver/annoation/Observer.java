@@ -8,16 +8,18 @@ import java.lang.annotation.Target;
 
 import org.springframework.core.annotation.AliasFor;
 
+import com.lhy.boot.messageobserver.Action;
+
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Observer {
 	
 	@AliasFor("action")
-	String[] value() default {};
+	Action[] value() default {};
 	
 	@AliasFor("value")
-	String[] action() default {};
+	Action[] action() default {};
 	
 	boolean async() default false;
 	
