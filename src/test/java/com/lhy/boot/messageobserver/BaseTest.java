@@ -6,7 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.lhy.boot.messageobserver.spring.event.UserLoginEvent;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -39,6 +42,20 @@ public class BaseTest {
 		
 		try {
 			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Autowired
+	private ApplicationContext applicationContext;
+	
+	@Test
+	public void testEvent(){
+		applicationContext.publishEvent(new UserLoginEvent("zhagsan"));
+		try {
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
